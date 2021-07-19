@@ -1,12 +1,12 @@
-package pl.projekt.mikroblog.entry.controller;
+package pl.projekt.mikroblog.post.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.projekt.mikroblog.entry.entity.Post;
-import pl.projekt.mikroblog.entry.service.PostService;
+import pl.projekt.mikroblog.post.entity.Post;
+import pl.projekt.mikroblog.post.service.PostService;
 
 import java.util.Date;
 

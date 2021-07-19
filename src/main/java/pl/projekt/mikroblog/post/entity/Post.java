@@ -1,4 +1,4 @@
-package pl.projekt.mikroblog.entry.entity;
+package pl.projekt.mikroblog.post.entity;
 
 import lombok.Getter;
 import lombok.Setter;

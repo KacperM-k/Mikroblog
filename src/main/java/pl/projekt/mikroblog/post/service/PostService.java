@@ -1,6 +1,6 @@
-package pl.projekt.mikroblog.entry.service;
+package pl.projekt.mikroblog.post.service;
 
-import pl.projekt.mikroblog.entry.entity.Post;
+import pl.projekt.mikroblog.post.entity.Post;
 
 import java.util.Date;
 import java.util.List;

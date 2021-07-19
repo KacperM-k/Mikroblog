@@ -1,8 +1,8 @@
-package pl.projekt.mikroblog.entry.service;
+package pl.projekt.mikroblog.post.service;
 
 import org.springframework.stereotype.Repository;
-import pl.projekt.mikroblog.entry.entity.Post;
-import pl.projekt.mikroblog.entry.repository.PostRepo;
+import pl.projekt.mikroblog.post.entity.Post;
+import pl.projekt.mikroblog.post.repository.PostRepo;
 
 import java.util.Date;
 import java.util.List;
