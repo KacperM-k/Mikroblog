@@ -10,7 +10,8 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-public class Entry {
+@Table(name = "entry")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +27,10 @@ public class Entry {
     @Column(name = "edit_date")
     Date editDate;
 
-    public Entry() {
+    public Post() {
     }
 
-    public Entry(long userId, String title, String description, Date publicationDate, Date editDate) {
+    public Post(long userId, String title, String description, Date publicationDate, Date editDate) {
         this.userId = userId;
         this.title = title;
         this.description = description;

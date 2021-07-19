@@ -7,9 +7,9 @@
 <body>
 
 <table>
-    <div th:each="entry : ${entries}">
-        <a th:text="${entry.title}"></a>
-        <a th:text="${entry.description}"></a>
+    <div th:each="post : ${allPosts}">
+        <a th:text="${post.title}"></a>
+        <a th:text="${post.description}"></a>
     </div>
 </table>
 

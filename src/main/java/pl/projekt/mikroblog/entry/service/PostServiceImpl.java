@@ -1,8 +1,8 @@
 package pl.projekt.mikroblog.entry.service;
 
 import org.springframework.stereotype.Repository;
-import pl.projekt.mikroblog.entry.entity.Entry;
-import pl.projekt.mikroblog.entry.repository.EntryRepo;
+import pl.projekt.mikroblog.entry.entity.Post;
+import pl.projekt.mikroblog.entry.repository.PostRepo;
 
 import java.util.Date;
 import java.util.List;
@@ -10,48 +10,48 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class EntryServiceImpl implements EntryService {
+public class PostServiceImpl implements PostService {
 
-    EntryRepo entryRepo;
+    PostRepo entryRepo;
 
-    public EntryServiceImpl(EntryRepo entryRepo) {
+    public PostServiceImpl(PostRepo entryRepo) {
         this.entryRepo = entryRepo;
     }
 
     @Override
-    public List<Entry> findAllEntries() {
+    public List<Post> findAllPosts() {
         return entryRepo.findAll();
     }
 
     @Override
-    public void addEntry(Entry entry) {
+    public void addPost(Post entry) {
         entryRepo.save(entry);
     }
 
     @Override
-    public void deleteEntry(long id) {
+    public void deletePost(long id) {
         entryRepo.deleteById(id);
     }
 
     @Override
-    public Entry editEntry(long id) {
+    public Post editPost(long id) {
         return null;
     }
 
     @Override
-    public Optional<Entry> findEntryById(long id) {
+    public Optional<Post> findPostById(long id) {
         return entryRepo.findById(id);
     }
 
     @Override
-    public List<Entry> findEntryByTitle(String title) {
-        List<Entry> allEntries = findAllEntries();
+    public List<Post> findPostByTitle(String title) {
+        List<Post> allEntries = findAllPosts();
         return allEntries.stream().filter(entry -> entry.getTitle().equals(title)).collect(Collectors.toList());
     }
 
     @Override
-    public List<Entry> findEntryByPublicationDate(Date date) {
-        List<Entry> allEntries = findAllEntries();
+    public List<Post> findPostByPublicationDate(Date date) {
+        List<Post> allEntries = findAllPosts();
         return allEntries.stream().filter(entry -> entry.getPublicationDate() == date).collect(Collectors.toList());
     }
 }

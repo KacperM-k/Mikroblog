@@ -2,8 +2,8 @@ package pl.projekt.mikroblog.entry.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.projekt.mikroblog.entry.entity.Entry;
+import pl.projekt.mikroblog.entry.entity.Post;
 
 @Repository
-public interface EntryRepo extends JpaRepository<Entry, Long> {
+public interface PostRepo extends JpaRepository<Post, Long> {
 }
