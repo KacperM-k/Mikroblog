@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form class="container" th:action="@{/entryform/addentry}" method="post" th:object="${newEntry}" enctype="multipart/form-data">
+<form class="container" th:action="@{/entrycreator/addentry}" method="post" th:object="${newEntry}" enctype="multipart/form-data">
     <div class="row">
         <label >Title:</label>
         <input  type="text" th:field="*{title}"/>
