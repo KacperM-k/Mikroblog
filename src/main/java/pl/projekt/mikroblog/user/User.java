@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.File;
 import java.time.LocalDate;
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -20,12 +22,12 @@ public class User {
     String password;
     String displayName;
     String description; // wyswietlana w opisie uzytkownika
-    LocalDate createAccountDate;
+    Date createAccountDate;
     String status;      // active, inactive, blocked
-    File avatar;
+  //  File avatar;
     String typ; // public, private lub admin, user
 
-    public User(String email, String login, String password, String displayName, String description, LocalDate createAccountDate, String status, File avatar, String typ) {
+    public User(String email, String login, String password, String displayName, String description, Date createAccountDate, String status, String typ) {
         this.email = email;
         this.login = login;
         this.password = password;
@@ -33,7 +35,7 @@ public class User {
         this.description = description;
         this.createAccountDate = createAccountDate;
         this.status = status;
-        this.avatar = avatar;
+     //   this.avatar = avatar;
         this.typ = typ;
     }
 
