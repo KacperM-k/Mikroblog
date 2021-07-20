@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import pl.projekt.mikroblog.post.entity.Post;
 import pl.projekt.mikroblog.post.repository.PostRepo;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -13,25 +12,25 @@ import java.util.stream.Collectors;
 @Repository
 public class PostServiceImpl implements PostService {
 
-    PostRepo entryRepo;
+    PostRepo postRepo;
 
     public PostServiceImpl(PostRepo entryRepo) {
-        this.entryRepo = entryRepo;
+        this.postRepo = entryRepo;
     }
 
     @Override
     public List<Post> findAllPosts() {
-        return entryRepo.findAll();
+        return postRepo.findAll();
     }
 
     @Override
     public void addPost(Post entry) {
-        entryRepo.save(entry);
+        postRepo.save(entry);
     }
 
     @Override
     public void deletePost(long id) {
-        entryRepo.deleteById(id);
+        postRepo.deleteById(id);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post findPostById(long id) {
-        Optional<Post> postOptional = entryRepo.findById(id);
+        Optional<Post> postOptional = postRepo.findById(id);
         return postOptional.get();
     }
 
