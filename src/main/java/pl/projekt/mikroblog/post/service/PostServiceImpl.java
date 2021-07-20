@@ -12,35 +12,38 @@ import java.util.stream.Collectors;
 @Repository
 public class PostServiceImpl implements PostService {
 
-    PostRepo entryRepo;
+    PostRepo postRepo;
 
     public PostServiceImpl(PostRepo entryRepo) {
-        this.entryRepo = entryRepo;
+        this.postRepo = entryRepo;
     }
 
     @Override
     public List<Post> findAllPosts() {
-        return entryRepo.findAll();
+        return postRepo.findAll();
     }
 
     @Override
     public void addPost(Post entry) {
-        entryRepo.save(entry);
+        postRepo.save(entry);
     }
 
     @Override
     public void deletePost(long id) {
-        entryRepo.deleteById(id);
+        postRepo.deleteById(id);
     }
 
     @Override
-    public Post editPost(long id) {
-        return null;
+    public Post editPost(long id, Post post) {
+        findPostById(id).setDescription(post.getDescription());
+        findPostById(id).setTitle(post.getTitle());
+        return findPostById(id);
     }
 
     @Override
-    public Optional<Post> findPostById(long id) {
-        return entryRepo.findById(id);
+    public Post findPostById(long id) {
+        Optional<Post> postOptional = postRepo.findById(id);
+        return postOptional.get();
     }
 
     @Override

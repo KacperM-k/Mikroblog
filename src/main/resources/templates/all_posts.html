@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <h1>Entries</h1>
+    <h1>Posts</h1>
 </head>
 <body>
 
@@ -10,6 +10,7 @@
     <div th:each="post : ${allPosts}">
         <a th:text="${post.title}"></a>
         <a th:text="${post.description}"></a>
+        <a th:href="@{/post/updatepost/{id} (id=${post.id})}" th:text="edytuj"></a>
     </div>
 </table>
 
