@@ -8,9 +8,15 @@
 
 <table>
     <div th:each="post : ${allPosts}">
-        <a th:text="${post.title}"></a>
-        <a th:text="${post.description}"></a>
-        <a th:href="@{/post/updatepost/{id} (id=${post.id})}" th:text="edytuj"></a>
+        <div class="postarea">
+            <b th:text="${post.userName}"></b>
+            <b th:text="${post.publicationDate}"></b>
+            <p th:text="${post.title}"></p>
+            <p th:text="${post.description}"></p>
+            <a th:href="@{/post/updatepost/{id} (id=${post.id})}" th:text="update"></a>
+            <a th:href="@{/posts/delete/{id} (id=${post.id})}" th:text="delete"></a>
+        </div>
+        <br>
     </div>
 </table>
 

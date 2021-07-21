@@ -23,11 +23,11 @@ public class Post {
     String userName;
     @Column(name = "title")
     @NotNull
-    @Size(min=2, max=50)
+    @Size(min=2, max=160)
     String title;
     @Column(name = "description")
     @NotNull
-    @Size(min=2, max=200)
+    @Size(min=2, max=1600)
     String description;
     @Column(name = "publication_date")
     Date publicationDate;
