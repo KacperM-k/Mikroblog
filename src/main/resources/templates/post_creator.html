@@ -7,16 +7,17 @@
 <body>
 
 <form class="container" th:action="@{/posts/savepost}" method="post" th:object="${newPost}" enctype="multipart/form-data">
+
     <div class="row">
         <label >Title:</label>
-        <input  type="text" th:field="*{title}"/>
+        <input type="text" th:field="*{title}"/>
+        <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">TitleError</td>
     </div>
     <div class="row">
         <label >Description:</label>
-        <input  type="text" th:field="*{description}"/>
+        <input type="text" th:field="*{description}"/>
+        <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">DescriptionError</td>
     </div>
-
-
 
     <input type="submit" class="btn btn-primary col-12 row"/>
 </form>

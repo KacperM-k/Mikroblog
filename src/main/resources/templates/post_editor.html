@@ -9,7 +9,8 @@
 <form class="container" th:action="@{/posts/updatepost}" method="post" th:object="${newPost}" enctype="multipart/form-data">
   <div class="row">
     <input type="hidden" th:value="${post.id}" th:attr="name='id'"/>
-    <input type="hidden" th:value="${post.userId}" th:attr="name='userId'"/>
+    <input type="hidden" th:value="${post.getUserName}" th:attr="name='userName'"/>
+<!--    <input type="hidden" th:value="${post.getPublicationDate()}" th:attr="name='publicationDate'"/>-->
     <label >Title:</label>
     <input  type="text" th:field="*{title}" th:value="${post.title}"/>
 <!--    nie wyświetla domyslnej wartości czyli starego tekstu-->
