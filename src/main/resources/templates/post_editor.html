@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<div th:replace="fragments :: menu"/>
+
 <form class="container" th:action="@{/posts/updatepost}" method="post" th:object="${newPost}" enctype="multipart/form-data">
   <div class="row">
     <input type="hidden" th:value="${post.id}" th:attr="name='id'"/>

@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<div th:replace="fragments :: menu"/>
+
 <table>
     <div th:each="post : ${allPosts}">
         <div class="postarea">
