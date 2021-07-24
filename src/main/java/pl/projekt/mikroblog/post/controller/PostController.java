@@ -27,7 +27,7 @@ public class PostController {
     @GetMapping("posts")
     public String showAllEntries(Model model) {
         model.addAttribute("allPosts", entryService.findAllPosts());
-        return "all_posts";
+        return "home_screen";
     }
 
     @GetMapping("posts/{id}")

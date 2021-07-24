@@ -7,6 +7,7 @@
 <body>
 
 <div th:replace="fragments :: menu"/>
+<br>
 
 <form class="container" th:action="@{/posts/savepost}" method="post" th:object="${newPost}" enctype="multipart/form-data">
 

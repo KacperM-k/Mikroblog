@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
+
 <body>
+
 <div th:replace="fragments :: menu"/>
 <h1>Home</h1>
+
+<table>
+    <div th:each="post : ${allPosts}">
+        <div class="postarea">
+            <b th:text="${post.userName}"></b>
+            <b th:text="${post.publicationDate}"></b>
+            <p th:text="${post.title}"></p>
+            <p th:text="${post.description}"></p>
+            <a th:href="@{/post/updatepost/{id} (id=${post.id})}" th:text="update"></a>
+            <a th:href="@{/posts/delete/{id} (id=${post.id})}" th:text="delete"></a>
+        </div>
+        <br>
+    </div>
+</table>
+
 </body>
+
+<footer>
+    @Copyright
+</footer>
+
 </html>
