@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User details</title>
+</head>
+<body>
+<div th:replace="fragments :: menu"/>
+<br><br>
+<div><h3>User details: </h3></div>
+<span><h5>Email:</h5></span>
+<div th:text="${userByLogin.email}"></div>
+
+<span><h5>Login: </h5></span>
+<div th:text="${userByLogin.login}"></div>
+
+<span><h5>Display name: </h5></span>
+<div th:text="${userByLogin.displayName}"></div>
+<span><h5>Description: </h5></span>
+<div th:text="${userByLogin.description}"></div>
+<span><h5>Date of create your account: </h5></span>
+<div th:text="${userByLogin.createAccountDate}"></div>
+<span><h5>Status: </h5></span>
+<div th:text="${userByLogin.status}"></div>
+<span><h5>Typ: </h5></span>
+<div th:text="${userByLogin.typ}"></div>
+<br>
+<br>
+
+</body>
+</html>

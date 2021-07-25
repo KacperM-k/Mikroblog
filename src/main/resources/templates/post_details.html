@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <h1>Post details</h1>
+</head>
+<body>
+
+<div th:replace="fragments :: menu"/>
+
+<a th:text="${post.title}"></a>
+<a th:text="${post.description}"></a>
+<div th:each="comment : ${comments}">
+    <div>
+        <b th:text="${comment.commentAuthor}"></b>
+        <b th:text="${comment.commentDate}"></b>
+        <b th:text="${comment.commentText}"></b>
+    </div>
+    <br>
+</div>
+
+</body>
+<footer>
+
+</footer>
+</html>

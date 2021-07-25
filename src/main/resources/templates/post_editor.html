@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div th:replace="fragments :: menu"/>
+
+<form class="container" th:action="@{/posts/updatepost}" method="post" th:object="${newPost}" enctype="multipart/form-data">
+  <div class="row">
+    <input type="hidden" th:value="${post.id}" th:attr="name='id'"/>
+    <input type="hidden" th:value="${post.getUserName}" th:attr="name='userName'"/>
+<!--    <input type="hidden" th:value="${post.getPublicationDate()}" th:attr="name='publicationDate'"/>-->
+    <label >Title:</label>
+    <input  type="text" th:field="*{title}" th:value="${post.title}"/>
+<!--    nie wyświetla domyslnej wartości czyli starego tekstu-->
+  </div>
+  <div class="row">
+    <label >Description:</label>
+    <input  type="text" th:field="*{description}" th:value="${post.description}"/>
+    <!--    nie wyświetla domyslnej wartości czyli starego tekstu-->
+  </div>
+
+  <input type="submit" class="btn btn-primary col-12 row"/>
+</form>
+
+</body>
+</html>
