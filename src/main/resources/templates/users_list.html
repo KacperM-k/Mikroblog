@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+<div th:replace="fragments :: menu"/>
+<br><br>
+<div><h3>All users: </h3></div>
+<span><h5>Email:</h5></span>
+<table>
+    <tbody>
+    <div>Users List: </div>
+    <tr th:each="user :${allUsersList}">
+        <a th:href="@{/all_users/{login} (login=${user.login})}">
+            <div th:text="${user.login}"></div>
+        </a>
+        <div th:text="${user.email}"></div>
+        <span><h5>Login: </h5></span>
+        <div th:text="${user.login}"></div>
+        <span><h5>Display name: </h5></span>
+        <div th:text="${user.displayName}"></div>
+        <span><h5>Description: </h5></span>
+        <div th:text="${user.description}"></div>
+        <span><h5>Date of create your account: </h5></span>
+        <div th:text="${user.createAccountDate}"></div>
+        <span><h5>Status: </h5></span>
+        <div th:text="${user.status}"></div>
+        <span><h5>Typ: </h5></span>
+        <div th:text="${user.typ}"></div>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+</body>
+</html>

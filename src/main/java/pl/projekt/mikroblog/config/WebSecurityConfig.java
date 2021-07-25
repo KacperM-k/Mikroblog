@@ -11,11 +11,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().
-//                withUser("grażyna").password("{noop}password1").authorities("USER");
-//    }
+
     @Autowired
     DataSource dataSource;
 
