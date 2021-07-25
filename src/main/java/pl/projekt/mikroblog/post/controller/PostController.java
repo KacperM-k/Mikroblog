@@ -18,13 +18,13 @@ import java.util.Date;
 @Controller
 public class PostController {
 
-    PostService entryService;
+    PostService postService;
     CommentService commentService;
     UserDAO userDAO;
 
     @Autowired
     public PostController(PostService entryService, CommentService commentService, UserDAO userDAO) {
-        this.entryService = entryService;
+        this.postService = entryService;
         this.commentService = commentService;
         this.userDAO = userDAO;
     }
