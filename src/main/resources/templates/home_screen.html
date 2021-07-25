@@ -23,6 +23,13 @@
 <!--            Data-->
 <!--            Komentarz-->
         </div>
+        <select>
+            <option th:value="like" th:attr="name='reactionType'">Like </option>
+            <option th:value="dislike" th:attr="name='reactionType'">Dislike </option>
+            <option th:value="love" th:attr="name='reactionType'">Love </option>
+            <option th:value="angry" th:attr="name='reactionType'">Angry </option>
+            <option th:value="haha" th:attr="name='reactionType'" >HaHa</option>
+        </select>
         <br>
     </div>
 </table>
