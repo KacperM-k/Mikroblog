@@ -11,11 +11,11 @@ import pl.projekt.mikroblog.post.service.PostService;
 @Controller
 public class PostCreator {
 
-    PostService entryService;
+    PostService postService;
     UserDAO userDAO;
 
-    public PostCreator(PostService entryService, UserDAO userDAO) {
-        this.entryService = entryService;
+    public PostCreator(PostService postService, UserDAO userDAO) {
+        this.postService = postService;
         this.userDAO = userDAO;
     }
 
@@ -28,7 +28,7 @@ public class PostCreator {
 
     @GetMapping("/post/updatepost/{id}")
     public String editPost(@PathVariable long id, Model model) {
-        model.addAttribute("post", entryService.findPostById(id));
+        model.addAttribute("post", postService.findPostById(id));
         model.addAttribute("newPost", new Post());
         return "post_editor";
     }

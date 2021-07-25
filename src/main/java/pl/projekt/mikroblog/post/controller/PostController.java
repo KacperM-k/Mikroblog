@@ -23,8 +23,8 @@ public class PostController {
     UserDAO userDAO;
 
     @Autowired
-    public PostController(PostService entryService, CommentService commentService, UserDAO userDAO) {
-        this.postService = entryService;
+    public PostController(PostService postService, CommentService commentService, UserDAO userDAO) {
+        this.postService = postService;
         this.commentService = commentService;
         this.userDAO = userDAO;
     }
