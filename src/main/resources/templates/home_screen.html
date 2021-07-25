@@ -13,12 +13,20 @@
 <table>
     <div th:each="post : ${allPosts}">
         <div class="postarea">
-            <b th:text="${post.userName}"></b>
+<!--            <b th:text="${post.userName}"></b>-->
+            <a th:href="@{/users_details}" th:text="${post.userName}"></a>
             <b th:text="${post.publicationDate}"></b>
-            <p th:text="${post.title}"></p>
+            <p><a th:href="@{/posts/{id} (id=${post.id})}" th:text="${post.title}"></a></p>
             <p th:text="${post.description}"></p>
             <a th:href="@{/post/updatepost/{id} (id=${post.id})}" th:text="update"></a>
             <a th:href="@{/posts/delete/{id} (id=${post.id})}" th:text="delete"></a>
+            <select>
+                <option th:value="like" th:attr="name='reactionType'">Like </option>
+                <option th:value="dislike" th:attr="name='reactionType'">Dislike </option>
+                <option th:value="love" th:attr="name='reactionType'">Love </option>
+                <option th:value="angry" th:attr="name='reactionType'">Angry </option>
+                <option th:value="haha" th:attr="name='reactionType'" >HaHa</option>
+            </select>
 <!--            Autor-->
 <!--            Data-->
 <!--            Komentarz-->
