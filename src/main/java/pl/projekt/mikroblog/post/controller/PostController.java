@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.projekt.mikroblog.DAO.UserDAO;
 import pl.projekt.mikroblog.post.entity.Post;
 import pl.projekt.mikroblog.post.service.CommentService;
 import pl.projekt.mikroblog.post.service.PostService;
@@ -20,12 +21,13 @@ public class PostController {
 
     PostService entryService;
     CommentService commentService;
+    UserDAO userDAO;
 
     @Autowired
-    public PostController(PostService entryService, CommentService commentService) {
+    public PostController(PostService entryService, CommentService commentService, UserDAO userDAO) {
         this.entryService = entryService;
         this.commentService = commentService;
-    }
+        this.userDAO = userDAO;
 
     @GetMapping("posts")
     public String showAllEntries(Model model) {
@@ -47,7 +49,7 @@ public class PostController {
         }
         Date currentdate = new Date();
         post.setPublicationDate(currentdate);
-        post.setUserName("email1@wp.pl"); //username musi być pobierane od użytkownika, który aktualnie jest zalogowany
+//        post.setUserName(userDAO.getLoggedUsername());
         entryService.addPost(post);
         return "redirect:/posts";
     }

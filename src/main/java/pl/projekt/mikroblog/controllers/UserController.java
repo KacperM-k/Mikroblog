@@ -17,4 +17,6 @@ public class UserController {
         return "user_details";
     }
 
+
+
 }

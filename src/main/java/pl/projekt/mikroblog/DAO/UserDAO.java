@@ -1,5 +1,8 @@
 package pl.projekt.mikroblog.DAO;
 
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 import pl.projekt.mikroblog.user.User;
 
@@ -16,5 +19,18 @@ public class UserDAO {
         return userByLogin;
     }
 
+
+
+    //pobieranie danych o zalogowanym użytkowniku (dodane przez Kacper)
+    public String getLoggedUsername() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String username = ((UserDetails) principal).getUsername();
+            return username;
+        } else{
+            String username = principal.toString();
+            return username;
+        }
+    }
 
 }
