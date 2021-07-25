@@ -35,4 +35,10 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> all = commentsRepo.findAll();
         commentsRepo.deleteAllInBatch(all.stream().filter(comment -> comment.getPostID() == id).collect(Collectors.toList()));
     }
+
+    @Override
+    public void deleteCommentByID(long id) {
+        commentsRepo.deleteById(id);
+    }
+
 }
