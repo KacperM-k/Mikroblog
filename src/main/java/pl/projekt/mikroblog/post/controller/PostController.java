@@ -28,6 +28,7 @@ public class PostController {
         this.entryService = entryService;
         this.commentService = commentService;
         this.userDAO = userDAO;
+    }
 
     @GetMapping("posts")
     public String showAllEntries(Model model) {
