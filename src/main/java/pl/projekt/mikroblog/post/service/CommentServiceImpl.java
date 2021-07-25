@@ -29,4 +29,16 @@ public class CommentServiceImpl implements CommentService {
 //        Optional<Comment> commentOptional = commentsRepo.findById(id);
 //        return commentOptional.get();
 //    }
+
+    @Override
+    public void deleteCommentByPostID(long id) {
+        List<Comment> all = commentsRepo.findAll();
+        commentsRepo.deleteAllInBatch(all.stream().filter(comment -> comment.getPostID() == id).collect(Collectors.toList()));
+    }
+
+    @Override
+    public void deleteCommentByID(long id) {
+        commentsRepo.deleteById(id);
+    }
+
 }
