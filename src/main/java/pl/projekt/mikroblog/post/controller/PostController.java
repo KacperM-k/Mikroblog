@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,27 +18,27 @@ import java.util.Date;
 @Controller
 public class PostController {
 
-    PostService entryService;
+    PostService postService;
     CommentService commentService;
     UserDAO userDAO;
 
     @Autowired
-    public PostController(PostService entryService, CommentService commentService, UserDAO userDAO) {
-        this.entryService = entryService;
+    public PostController(PostService postService, CommentService commentService, UserDAO userDAO) {
+        this.postService = postService;
         this.commentService = commentService;
         this.userDAO = userDAO;
     }
 
     @GetMapping("posts")
     public String showAllEntries(Model model) {
-        model.addAttribute("allPosts", entryService.findAllPosts());
+        model.addAttribute("allPosts", postService.findAllPosts());
         return "home_screen";
     }
 
     @GetMapping("posts/{id}")
     public String getPost(@PathVariable long id, Model model) {
-        model.addAttribute("post", entryService.findPostById(id));
         model.addAttribute("comments", commentService.findAllCommentsByPost(id));
+        model.addAttribute("post", postService.findPostById(id));
         return "post_details";
     }
 
@@ -51,7 +50,7 @@ public class PostController {
         Date currentdate = new Date();
         post.setPublicationDate(currentdate);
 //        post.setUserName(userDAO.getLoggedUsername());
-        entryService.addPost(post);
+        postService.addPost(post);
         return "redirect:/posts";
     }
 
@@ -59,13 +58,13 @@ public class PostController {
     public String updatePost(Post post) {
         Date currentdate = new Date();
         post.setEditDate(currentdate);
-        entryService.addPost(post);
+        postService.addPost(post);
         return "redirect:/posts";
     }
 
     @GetMapping("posts/delete/{id}")
-    public String deletePost(@PathVariable long id) {
-        entryService.deletePost(id);
+    public String deletePost(@PathVariable long id){
+        postService.deletePost(id);
         return "redirect:/posts";
     }
 
