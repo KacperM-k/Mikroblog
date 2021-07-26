@@ -23,12 +23,8 @@ public class Post {
     @Column(name = "user_name")
     String userName;
     @Column(name = "title")
-    @NotNull
-    @Size(min = 2, max = 160)
     String title;
     @Column(name = "description")
-    @NotNull
-    @Size(min = 2, max = 1600)
     String description;
     @Column(name = "publication_date")
     Date publicationDate;
@@ -48,6 +44,7 @@ public class Post {
         this.publicationDate = publicationDate;
         this.editDate = editDate;
 
+//        this.commentsList = commentsList;
     }
 
 }

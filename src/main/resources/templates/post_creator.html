@@ -14,7 +14,7 @@
     <div class="row">
         <label >Title:</label>
         <input type="text" th:field="*{title}"/>
-        <input type="hidden" th:value="${loggedUsername.getLoggedUsername()}" th:attr="name='userName'"/>
+<!--        <input type="hidden" th:value="${loggedUsername.getLoggedUsername()}" th:attr="name='userName'"/>-->
         <td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">TitleError</td>
     </div>
     <div class="row">
