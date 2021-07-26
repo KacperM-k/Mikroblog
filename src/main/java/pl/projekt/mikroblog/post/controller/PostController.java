@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.projekt.mikroblog.DAO.UserDAO;
 import pl.projekt.mikroblog.post.entity.Post;
+import pl.projekt.mikroblog.post.model.PostDTO;
 import pl.projekt.mikroblog.post.service.CommentService;
+import pl.projekt.mikroblog.post.service.PostMapper;
 import pl.projekt.mikroblog.post.service.PostService;
 
 import javax.validation.Valid;
@@ -21,12 +23,14 @@ public class PostController {
     PostService postService;
     CommentService commentService;
     UserDAO userDAO;
+    PostMapper postMapper;
 
     @Autowired
-    public PostController(PostService postService, CommentService commentService, UserDAO userDAO) {
+    public PostController(PostService postService, CommentService commentService, UserDAO userDAO, PostMapper postMapper) {
         this.postService = postService;
         this.commentService = commentService;
         this.userDAO = userDAO;
+        this.postMapper = postMapper;
     }
 
     @GetMapping("posts")
@@ -43,26 +47,21 @@ public class PostController {
     }
 
     @PostMapping("posts/savepost")
-    public String redirectEntry(@Valid Post post, BindingResult bindingResult) {
+    public String redirectEntry(@Valid PostDTO postDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "post_creator";
         }
-        Date currentdate = new Date();
-        post.setPublicationDate(currentdate);
-//        post.setUserName(userDAO.getLoggedUsername());
-        postService.addPost(post);
+        postMapper.createNewPost(postDTO);
         return "redirect:/posts";
     }
 
     @PostMapping("posts/updatepost")
-    public String updatePost(Post post) {
-        Date currentdate = new Date();
-        post.setEditDate(currentdate);
-        postService.addPost(post);
+    public String updatePost(PostDTO postDTO) {
+        postMapper.updatePost(postDTO);
         return "redirect:/posts";
     }
 
-    @GetMapping("posts/delete/{id}")
+    @GetMapping("posts/delete/{id}")//post mozna usunąć tylko w tedy gdy nie ma komentarzy, trzeba dodać opcjęusuwania komantarzy
     public String deletePost(@PathVariable long id){
         postService.deletePost(id);
         return "redirect:/posts";

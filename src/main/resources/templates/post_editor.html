@@ -12,7 +12,7 @@
   <div class="row">
     <input type="hidden" th:value="${post.id}" th:attr="name='id'"/>
     <input type="hidden" th:value="${post.getUserName}" th:attr="name='userName'"/>
-<!--    <input type="hidden" th:value="${post.getPublicationDate()}" th:attr="name='publicationDate'"/>-->
+<!--    <input type="date" th:value="${post.getPublicationDate()}" th:attr="name='publicationDate'"/>-->
     <label >Title:</label>
     <input  type="text" th:field="*{title}" th:value="${post.title}"/>
 <!--    nie wyświetla domyslnej wartości czyli starego tekstu-->

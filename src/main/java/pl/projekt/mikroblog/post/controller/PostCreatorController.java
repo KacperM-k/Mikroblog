@@ -6,23 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.projekt.mikroblog.DAO.UserDAO;
 import pl.projekt.mikroblog.post.entity.Post;
+import pl.projekt.mikroblog.post.model.PostDTO;
 import pl.projekt.mikroblog.post.service.PostService;
 
 @Controller
-public class PostCreator {
+public class PostCreatorController {
 
     PostService postService;
     UserDAO userDAO;
 
-    public PostCreator(PostService postService, UserDAO userDAO) {
+    public PostCreatorController(PostService postService, UserDAO userDAO) {
         this.postService = postService;
         this.userDAO = userDAO;
     }
 
     @GetMapping("/post/addpost")
     public String addPost(Model model) {
-        model.addAttribute("newPost", new Post());
-        model.addAttribute("loggedUsername", userDAO);
+        model.addAttribute("newPost", new PostDTO());
         return "post_creator";
     }
 
