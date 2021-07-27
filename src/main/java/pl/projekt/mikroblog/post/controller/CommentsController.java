@@ -38,7 +38,7 @@ public class CommentsController {
         comment.setCommentDate(currentDate);
         comment.setCommentAuthor(userDAO.getLoggedUsername());
         commentService.addComment(comment);
-        return "redirect:/posts";
+        return "redirect:/posts/"+comment.getPostID();
     }
 
 //    @PostMapping("posts/savepost")
