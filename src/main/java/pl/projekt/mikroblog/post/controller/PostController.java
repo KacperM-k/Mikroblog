@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.projekt.mikroblog.DAO.UserDAO;
+import pl.projekt.mikroblog.post.entity.Comment;
 import pl.projekt.mikroblog.post.entity.Post;
 import pl.projekt.mikroblog.post.model.PostDTO;
 import pl.projekt.mikroblog.post.service.CommentService;
@@ -43,6 +44,7 @@ public class PostController {
     public String getPost(@PathVariable long id, Model model) {
         model.addAttribute("comments", commentService.findAllCommentsByPost(id));
         model.addAttribute("post", postService.findPostById(id));
+        model.addAttribute("newComment", new Comment());
         return "post_details";
     }
 

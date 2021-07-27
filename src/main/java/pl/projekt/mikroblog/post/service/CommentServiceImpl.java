@@ -41,4 +41,8 @@ public class CommentServiceImpl implements CommentService {
         commentsRepo.deleteById(id);
     }
 
+    @Override
+    public void addComment(Comment comment){
+        commentsRepo.save(comment);
+    }
 }

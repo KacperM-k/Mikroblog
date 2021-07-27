@@ -19,6 +19,16 @@
     </div>
     <br>
 </div>
+<form class="container" th:action="@{/comment/savecomment}" method="post" th:object="${newComment}" enctype="multipart/form-data">
+    <input type="hidden" th:value="${post.id}" th:attr="name='postID'"/>
+
+    <div class="row">
+        <label for="addcomment">Comment</label>
+        <input id="addcomment" type="text" th:field="*{commentText}"/>
+    </div>
+
+    <input type="submit"/>
+</form>
 
 </body>
 <footer>
