@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My account</title>
+</head>
+<body>
+<div th:replace="fragments :: menu"/>
+<br><br>
+<div><h3>My account details: </h3></div>
+<span><h5>Email:</h5></span>
+<div th:text="${myUserAccount.email}"></div>
+<span><h5>Login: </h5></span>
+<div th:text="${myUserAccount.login}"></div>
+<span><h5>Display name: </h5></span>
+<div th:text="${myUserAccount.displayName}"></div>
+<span><h5>Description: </h5></span>
+<div th:text="${myUserAccount.description}"></div>
+<span><h5>Date of create your account: </h5></span>
+<div th:text="${myUserAccount.createAccountDate}"></div>
+<span><h5>Status: </h5></span>
+<div th:text="${myUserAccount.status}"></div>
+<span><h5>Typ: </h5></span>
+<div th:text="${myUserAccount.typ}"></div>
+<br>
+<br>
+<a th:href="@{/edit_form/{login} (login=${myUserAccount.login})}">Edit your details</a>
+</body>
+
+</body>
+</html>

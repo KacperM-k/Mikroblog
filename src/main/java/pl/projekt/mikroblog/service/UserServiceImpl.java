@@ -1,5 +1,7 @@
 package pl.projekt.mikroblog.service;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import pl.projekt.mikroblog.repository.UserRepository;
 import pl.projekt.mikroblog.user.User;
@@ -54,5 +56,28 @@ public class UserServiceImpl implements UserService {
         //findByLogin(login);
 
         return Optional.ofNullable(byLogin);
+    }
+    //pobieranie danych o zalogowanym użytkowniku (dodane przez Kacper)
+    public String getLoggedUsername() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String username = ((UserDetails) principal).getUsername();
+            return username;
+        } else {
+            String username = principal.toString();
+            return username;
+        }
+    }
+
+    public User getActualLogged() {
+        Object logged = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (logged instanceof UserDetails) {
+            String username = ((UserDetails) logged).getUsername();
+            User byUsername = userRepo.findByUsername(username);
+
+            return byUsername;
+        }
+        return null;
     }
 }

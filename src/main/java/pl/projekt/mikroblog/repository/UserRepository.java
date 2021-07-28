@@ -8,4 +8,5 @@ import pl.projekt.mikroblog.user.User;
 public interface UserRepository extends JpaRepository<User, String> {
 
     User findByLogin(String login);
+    User findByUsername(String username);
 }
