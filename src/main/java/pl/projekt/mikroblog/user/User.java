@@ -2,6 +2,7 @@ package pl.projekt.mikroblog.user;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ public class User {
     @Column(name = "display_name")
     String displayName;
     String description; // wyswietlana w opisie uzytkownika
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="create_account_date")
     Date createAccountDate;
     String status;      // active, inactive, blocked
