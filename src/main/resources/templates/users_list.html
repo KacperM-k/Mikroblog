@@ -16,7 +16,7 @@
         <a th:href="@{/all_users/{login} (login=${user.login})}">
             <div th:text="${user.login}"></div>
         </a>
-        <div th:text="${user.email}"></div>
+        <div th:text="${user.getUsername}"></div>
         <span><h5>Login: </h5></span>
         <div th:text="${user.login}"></div>
         <span><h5>Display name: </h5></span>

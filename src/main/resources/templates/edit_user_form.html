@@ -10,18 +10,26 @@
 <div><h3>User edit form:</h3></div>
 <form class="editUserDetails" th:action="@{/correct_user}" method="post" th:object="${userEdited}" enctype="multipart/form-data">
 
-    <label for="email">email: </label>
-    <input type="text" id="email" th:field="*{email}">
-    <br>
-    <label for="login">Login: </label>
-    <input type="text" id="login" th:field="*{login}" placeholder="Login">
+    <input type="hidden" th:field="*{login}"/>
+
+    <label for="email">Email: </label>
+    <input type="text" id="email" th:field="*{getUsername}">
     <br>
     <label for="password">Password: </label>
     <input type="password" id="password" th:field="*{password}">
     <br>
+    <label for="displayName">Display Name: </label>
+    <input type="text" id="displayName" th:field="*{displayName}" placeholder="display name">
+    <br>
     <label for="description">Description: </label>
     <input type="text" id="description" th:field="*{description}">
+
     <br>
+    <input type="date" th:field="*{createAccountDate}"/>
+    <input type="hidden" th:field="*{status}" />
+    <input type="hidden" th:field="*{typ}"/>
+
+
     <input type="submit" name="Save!">
 </form>
 </body>
