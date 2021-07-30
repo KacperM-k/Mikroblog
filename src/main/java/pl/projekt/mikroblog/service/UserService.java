@@ -15,6 +15,7 @@ public interface UserService {
     void editUserDetails(User user, String login);
     Optional<User> findByLogin(String login);
     User getActualLogged();
+    String getLoggedUsername();
 
 
 

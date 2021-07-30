@@ -11,6 +11,7 @@ import pl.projekt.mikroblog.post.entity.Comment;
 import pl.projekt.mikroblog.post.entity.Post;
 import pl.projekt.mikroblog.post.repository.CommentsRepo;
 import pl.projekt.mikroblog.post.service.CommentService;
+import pl.projekt.mikroblog.service.UserService;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.Date;
 public class CommentsController {
 
     CommentService commentService;
+    UserService userService;
     UserDAO userDAO;
 
     public CommentsController(CommentService commentService, UserDAO userDAO) {
@@ -36,7 +38,7 @@ public class CommentsController {
     public String saveComment(Comment comment) {
         Date currentDate = new Date();
         comment.setCommentDate(currentDate);
-        comment.setCommentAuthor(userDAO.getLoggedUsername());
+        comment.setCommentAuthor(userService.getLoggedUsername());
         commentService.addComment(comment);
         return "redirect:/posts/"+comment.getPostID();
     }

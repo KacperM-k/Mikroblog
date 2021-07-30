@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.projekt.mikroblog.DAO.UserDAO;
 import pl.projekt.mikroblog.post.entity.Post;
 import pl.projekt.mikroblog.post.model.PostDTO;
+import pl.projekt.mikroblog.service.UserService;
 
 import java.util.Date;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 public class PostMapper {
 
     PostService postService;
+    UserService userService;
     UserDAO userDAO;
 
     @Autowired
@@ -27,7 +29,7 @@ public class PostMapper {
         post.setTitle(postDTO.getTitle());
         post.setDescription(postDTO.getDescription());
         post.setUserName(postDTO.getUserName());
-        post.setUserName(userDAO.getLoggedUsername());
+        post.setUserName(userService.getLoggedUsername());
         postService.addPost(post);
         return post;
     }
