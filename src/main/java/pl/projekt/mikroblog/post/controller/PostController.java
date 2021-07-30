@@ -14,6 +14,7 @@ import pl.projekt.mikroblog.post.model.PostDTO;
 import pl.projekt.mikroblog.post.service.CommentService;
 import pl.projekt.mikroblog.post.service.PostMapper;
 import pl.projekt.mikroblog.post.service.PostService;
+import pl.projekt.mikroblog.service.UserService;
 
 import javax.validation.Valid;
 import java.util.Date;

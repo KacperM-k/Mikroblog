@@ -35,7 +35,7 @@ public class CommentsController {
     }
 
     @PostMapping("/comment/savecomment")
-    public String saveComment(Comment comment) {
+    public String saveComment(Comment comment, UserService userService) {
         Date currentDate = new Date();
         comment.setCommentDate(currentDate);
         comment.setCommentAuthor(userService.getLoggedUsername());

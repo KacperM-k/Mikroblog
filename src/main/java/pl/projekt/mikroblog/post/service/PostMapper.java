@@ -29,7 +29,6 @@ public class PostMapper {
         post.setTitle(postDTO.getTitle());
         post.setDescription(postDTO.getDescription());
         post.setUserName(postDTO.getUserName());
-        post.setUserName(userService.getLoggedUsername());
         postService.addPost(post);
         return post;
     }
