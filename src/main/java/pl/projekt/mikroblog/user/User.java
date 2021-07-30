@@ -17,7 +17,7 @@ import java.util.Date;
 public class User {
     @Id
     @Column(name = "username")
-    String email; // email wyorzystany do komunikacji i powiadoień
+    String username; // w bazie danych username, do logowania
     String login;
     String password;
     @Column(name = "display_name")
@@ -31,7 +31,7 @@ public class User {
     String typ; // public, private lub admin, user
 
     public User(String email, String login, String password, String displayName, String description, Date createAccountDate, String status, String typ) {
-        this.email = email;
+        this.username = email;
         this.login = login;
         this.password = password;
         this.displayName = displayName;
