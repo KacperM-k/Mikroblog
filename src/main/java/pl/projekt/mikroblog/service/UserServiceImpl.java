@@ -41,22 +41,21 @@ public class UserServiceImpl implements UserService {
         userByLoginOp.ifPresent(userByLogin -> {
             userByLogin.setLogin(user.getLogin());
             userByLogin.setDescription(user.getDescription());
-            userByLogin.setEmail(user.getEmail());
+            userByLogin.setUsername(user.getUsername());
             userByLogin.setDisplayName(user.getDisplayName());
             userByLogin.setPassword(user.getPassword());
             userRepo.save(userByLogin);
         });
     }
 
-
     // dopisanie metody do interface repo
     @Override
     public Optional<User> findByLogin(String login) {
         User byLogin = userRepo.findByLogin("user1");
-        //findByLogin(login);
 
         return Optional.ofNullable(byLogin);
     }
+
     //pobieranie danych o zalogowanym użytkowniku (dodane przez Kacper)
     public String getLoggedUsername() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
