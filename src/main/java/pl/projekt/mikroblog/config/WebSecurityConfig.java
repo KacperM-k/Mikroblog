@@ -22,7 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserService userService;
 
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder());
+        auth.jdbcAuthentication().dataSource(dataSource);
+                //.passwordEncoder(new BCryptPasswordEncoder());
     }
 
    /* public void configure(HttpSecurity httpSecurity) throws Exception{

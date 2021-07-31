@@ -43,7 +43,7 @@ public class UserCreatorController {
         user.setCreateAccountDate(date);
         user.setStatus("Active");
         user.setTyp("user");
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+     //   user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.addUser(user);
         return "redirect:/login";
     }
